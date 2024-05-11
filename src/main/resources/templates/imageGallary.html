@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image gallery</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(function () {
+      var includes = $('[data-include]');
+      $.each(includes, function () {
+        var file = 'views/' + $(this).data('include') + '.html';
+        $(this).load(file);
+      });
+    });
+    $(function() {
+    $("#footer").load("footer.html");
+    $("#header").load("header.html");
+});
+  </script>
+  <style type="text/css">
+    * {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+#wrapper{
+  height:auto;
+  overflow-x:hidden;
+  overflow-y:auto;
+}
+
+.container{
+  height:100%;
+  max-width:1200px;
+  margin:0 auto;
+  padding:20px;
+}
+
+.container h1{
+  margin: 20px 100px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 3rem;
+}
+
+.gallery{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
+.card {
+  width:32%;
+  position:relative;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+ 
+.card img{
+  
+  width:100%;
+  height:100%;
+  filter: grayscale(100%);
+  box-shadow: 0 0 20px #333;
+  object-fit: cover;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  transition: 0.5s;
+  filter: drop-shadow(0 0 10px #333);
+}
+
+
+.card:hover img {
+  filter: grayscale(0%);
+}
+
+.card figcaption{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 25px;
+  width: 100%;
+  height: 20%;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  opacity: 0;
+  border-radius: 0 0 10px 10px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  transition: 0.3s;
+}
+
+.card:hover figcaption {
+  opacity: 1;
+  transform: scale(1.03);
+}  
+  </style>
+</head>
+<body>
+    
+  <div id="wrapper">
+
+    <div class="container">
+      <div id="header"></div>
+      <h1>Photo Session</h1>
+      
+      <div class="gallery">
+        
+        <figure class="card">
+          <img src="images/blog1.jpg" alt="">
+          <figcaption>image1</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="images/blog2.jpg" alt="">
+          <figcaption>image2</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="images/blog3.jpg" alt="">
+          <figcaption>image3</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="images/blog4.jpg" alt="">
+          <figcaption>image4</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="images/blog5.jpg" alt="">
+          <figcaption>image5</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="images/blog6.jpg" alt="">
+          <figcaption>image6</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="images/blog7.jpg" alt="">
+          <figcaption>image7</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="images/blog8.jpg" alt="">
+          <figcaption>image8</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="images/blog9.jpg" alt="">
+          <figcaption>image9</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="images/blog10.jpg" alt="">
+          <figcaption>image6</figcaption>
+        </figure>
+         
+      </div>
+    </div>
+
+    <div id="footer"></div>
+  </div>
+ 
+</body>
+</html>

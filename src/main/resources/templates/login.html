@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/css1_abu/style.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="login-box">
+      <h1>Welcome!</h1>
+
+      <h2>Login</h2>
+      <form action="/login" method="post" id="login-form">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+
+        <button type="submit">Login</button>
+        <button type="reset">Reset Above Field</button>
+        <p><input type="checkbox" name="remember_me" id="remember_me">Remember  me</p>
+      </form>
+
+      <p>Don't have an account? <a href="./signup.html" id="signup-link">Register</a><a href="forgotPassword.html" id="forgot_p">Forgot password</a></p>
+    </div>
+
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>

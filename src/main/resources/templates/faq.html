@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #faq {
+    margin: 0 auto;
+}
+
+.faq{
+    padding-top: 8rem ;
+    padding-bottom: 8rem ;
+    &_text{
+        font-size: 2.8rem;
+        margin: 1rem 0;
+        color: var(--white);
+        opacity: 80%;
+    }
+
+    &_main{
+        margin: 5rem 0;
+
+        .accordian{
+            display: flex;
+            justify-content: center;
+            row-gap: 2rem;
+            flex-direction: column;
+            &_item.active{
+                .answer{
+                    max-height: 20rem;
+                    width: 100%;
+                    max-width: 100%;
+                }
+                .link{
+                    .up{
+                        display: block;
+                    }
+
+                    .down{
+                        display: none;
+                    }
+                }
+            }
+            &_item{
+                width: 100%;
+                background-color: var(--secondarycolor);
+                padding: 1rem;
+                border-radius: rem(5);
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+                p{
+                    margin: 0;
+                }
+
+                .link{
+                    display: flex;
+                    justify-content: space-between;
+                    font-weight: 600;
+                    font-size: 1.3rem;
+                    ion-icon{
+                        color: var(--primarycolor);
+                    }
+                    .up{
+                        display: none;
+                        transition: display 1500ms ease-out;
+                    }
+                }
+
+                .answer{
+                    transition: max-height 800ms ease-in-out;
+                    width: 100%;
+                    max-height: 0;
+                    overflow: hidden;
+                    background-color: var(--Backgroundcolor);
+                    padding: 0 0.5rem;
+                    border-left: 4px solid var(--primarycolor);
+                    p{
+                        padding: 1rem;
+                    }
+                }
+
+                .answer.active{
+                    max-height: 20rem;
+                }
+
+            }
+        }
+    }
+    @include breakpoint-down(x-large) {
+        padding: 1rem rem(60);
+    }
+
+    @include breakpoint-down(small) {
+        padding: 1rem rem(20);
+    }
+}
+.subscribe{
+    background-color: var(--primarycolor);
+    padding:1rem rem(120) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    line-height: 1.7;
+    letter-spacing: rem(2);
+
+    .text{
+        h1{
+            font-size: 2.8rem;
+            color: var(--white);
+
+        }
+        p{
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+    }
+
+    .input{
+        width: 60%;
+        max-width: rem(1000);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        row-gap: 2rem;
+        color: var(--primarycolor);
+
+        input{
+            width: 100%;
+            border-radius: rem(5);
+            background-color: var(--Backgroundcolor);
+            color: var(--primarycolor);
+            outline: none;
+            border: none;
+            padding: 1rem;
+
+        }
+
+        button{
+            cursor: pointer;
+            background-color: var(--Backgroundcolor);
+            color: var(--primarycolor);
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 800;
+            outline: none;
+            border: none;
+            margin: 1rem auto;
+            transition: all 350ms ease-in;
+
+            &:hover{
+                background-color: var(--secondarycolor);
+
+            }
+        }
+    }
+
+    @include breakpoint-down(x-large) {
+        padding: 1rem rem(60);
+    }
+    
+    @include breakpoint-down(small) {
+        padding: 1rem rem(20);
+
+        .input{
+            width: 100%;
+        }
+    }
+}
+    </style>
+</head>
+<body>
+    <section class="faq" id="faq">
+        <div class="faq_text">
+            <h1>FAQ</h1>
+            <hr class="line">
+        </div>
+        <div class="faq_main">
+            <div class="accordian">
+                <div class="accordian_item">
+                    <a href="#q1" class="link">
+                        <p>Who should take an Online Course?</p>
+                        <ion-icon class="down" name="caret-down-outline"></ion-icon>
+                        <ion-icon class="up" name="caret-up-outline"></ion-icon>
+                    </a>
+                    <div class="answer">
+                        <p>
+                            Students join our online courses for a variety of reasons and come from diverse
+                            backgrounds, professions, and age
+                            groups. With online courses, you can
+                            Advance your skill-set or begin a career change.
+                            Take the next step in your formal education.
+                            Ease the transition before entering a full-time academic program.
+                            Enjoy learning a new topic.
+                            Whatever the reason, our online courses are a flexible way of learning about the art
+                            world without disrupting your daily
+                            life.
+                        </p>
+                    </div>
+                </div>
+                <div class="accordian_item">
+                    <a href="#q2" class="link">
+                        <p>Are there prerequisites or language requirements?</p>
+                        <ion-icon class="down" name="caret-down-outline"></ion-icon>
+                        <ion-icon class="up" name="caret-up-outline"></ion-icon>
+                    </a>
+                    <div class="answer">
+                        <p>
+                            There are no prerequisites. Our courses are open to students of all backgrounds who are
+                            18 years of age and older.
+                            All courses are conducted in English. Video lectures include English subtitles and the
+                            option to slow-down, pause, or
+                            replay lectures for better retention. Discussion boards are a critical component of each
+                            of our courses; therefore, we
+                            suggest students have a conversational knowledge of English when pursuing a Certificate
+                            of Completion. For any of the
+                            art writing courses, students need to be 100% proficient in written English.
+                        </p>
+                    </div>
+                </div>
+                <div class="accordian_item">
+                    <a href="#q3" class="link">
+                        <p>Can I take more than one course at a time?</p>
+                        <ion-icon class="down" name="caret-down-outline"></ion-icon>
+                        <ion-icon class="up" name="caret-up-outline"></ion-icon>
+                    </a>
+                    <div class="answer">
+                        <p>
+                            If you are new to online learning, we recommend that you begin with one course. As our
+                            courses are offered frequently
+                            throughout the year, you can always come back and continue your studies with one or more
+                            topics.
+                        </p>
+                    </div>
+                </div>
+                <div class="accordian_item">
+                    <a href="#q4" class="link">
+                        <p>My payment did not go through. What do I do?</p>
+                        <ion-icon class="down" name="caret-down-outline"></ion-icon>
+                        <ion-icon class="up" name="caret-up-outline"></ion-icon>
+                    </a>
+                    <div class="answer">
+                        <p>
+                            We apologize for this inconvenience. We encourage you to reach out to your financial
+                            institution as further permissions
+                            may be needed to complete the payment. You are also welcome to write to
+                            online@sothebysinstitute.com for further
+                            guidance. Please wait a full 24 hours before trying again. A strong Internet connection
+                            and up-to-date browser are
+                            strongly recommended
+                        </p>
+                    </div>
+                </div>
+                <div class="accordian_item" id="#q5">
+                    <a href="#q5" class="link">
+                        <p>Can I get a refund if I am unable to attend my Online Course?</p>
+                        <ion-icon class="down" name="caret-down-outline"></ion-icon>
+                        <ion-icon class="up" name="caret-up-outline"></ion-icon>
+                    </a>
+                    <div class="answer">
+                        <p>
+                            In order to be granted a full tuition refund, you must cancel your registration by
+                            sending an email to
+                            online@sothebysinstitute.com by 5:00 pm (your local time) 5 full business days before
+                            the course’s start date. Please
+                            note we are unable to reimburse for any currency conversion fees charged by your
+                            credit-card issuer.
+                        </p>
+                    </div>
+                </div>
+                <div class="accordian_item">
+                    <a href="#q6" class="link">
+                        <p>How do I contact technical support during my course?</p>
+                        <ion-icon class="down" name="caret-down-outline"></ion-icon>
+                        <ion-icon class="up" name="caret-up-outline"></ion-icon>
+                    </a>
+                    <div class="answer">
+                        <p>
+                            For technical support, please email online.support@3sv.com, 09:00 – 22:00 GMT, Monday
+                            – Friday. We are
+                            ready to help!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="subscribe">
+            <div class="text">
+                <h1>Subscribe</h1>
+                <p>To Our Email Newsletter And Expert Blog</p>
+            </div>
+            <div class="input">
+                <input type="email" placeholder="Emili@gmail.com" name="subscribe_email" class="input_email">
+                <button type="submit" class="btn">Submit</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
