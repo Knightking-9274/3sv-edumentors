@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.edumentors.backend.dto.UserDTO;
 import com.edumentors.backend.entities.User;
@@ -11,6 +12,7 @@ import com.edumentors.backend.exceptions.DataNotFoundException;
 import com.edumentors.backend.repositories.UserRepository;
 import com.edumentors.backend.services.UserService;
 
+@Service
 public class UserServiceImplementation implements UserService{
     @Autowired
     private UserRepository userRepository;
