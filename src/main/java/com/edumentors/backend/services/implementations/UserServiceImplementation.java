@@ -28,9 +28,9 @@ public class UserServiceImplementation implements UserService{
     @Override
     public UserDTO update(UserDTO userDTO, Long userId) {
        User user = this.userRepository.findById(userId).orElseThrow(()-> new DataNotFoundException("USER", "id", userId));
-       user.setName(userDTO.getName());
-       user.setEmailId(userDTO.getEmail());
-       user.setPassword(userDTO.getPassword());
+       user.setFName(userDTO.getFName());
+       user.setLName(userDTO.getLName());
+       user.setMobileNumber(userDTO.getContact());
        user.setAbout(userDTO.getAbout());
        User updatedUser = this.userRepository.save(user);
        return this.userToDTO(updatedUser);
@@ -59,7 +59,10 @@ public class UserServiceImplementation implements UserService{
     public User dtoToUser(UserDTO userDTO){
         User user = new User();
         user.setUserId(userDTO.getId());
-        user.setName(userDTO.getName());
+        user.setFName(userDTO.getFName());
+        user.setLName(userDTO.getLName());
+        user.setCity(userDTO.getCity());
+        user.setMobileNumber(userDTO.getContact());
         user.setPassword(userDTO.getPassword());
         user.setEmailId(userDTO.getEmail());
         user.setAbout(userDTO.getAbout());
@@ -70,7 +73,10 @@ public class UserServiceImplementation implements UserService{
     public UserDTO userToDTO(User user){
         UserDTO userDTO = new UserDTO();
         userDTO.setId(user.getUserId());
-        userDTO.setName(user.getName());
+        userDTO.setFName(user.getFName());
+        userDTO.setLName(user.getLName());
+        userDTO.setContact(user.getMobileNumber());
+        userDTO.setCity(user.getCity());
         userDTO.setPassword(user.getPassword());
         userDTO.setEmail(user.getEmailId());
         userDTO.setAbout(user.getAbout());

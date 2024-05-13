@@ -21,13 +21,25 @@ import lombok.Setter;
 @Table(name="users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long userId;
-    private String name;
+
     @Column(name="user_name")
     private String emailId;
+
+    @Column(name="first_name")
+    private String fName;
+
+    @Column(name="last_name")
+    private String lName;
+
+    @Column(name="location")
+    private String city;
+
     private String password;
+
     @Column(name="contact")
     private String mobileNumber;
+    @Column(length = 100)
     private String about;
 }
