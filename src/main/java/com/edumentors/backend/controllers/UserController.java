@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
-@RestController
+@Controller
 public class UserController {
 
     @Autowired
@@ -33,12 +33,12 @@ public class UserController {
     //     UserDTO createUserDTO = this.userService.createUser(userDTO);
     //     return new ResponseEntity<>(createUserDTO,HttpStatus.CREATED);
     // }
-    @PostMapping("/register")
-    public String registerUer(@ModelAttribute("userDTO") UserDTO userDTO){
-        User user = this.userServiceImplementation.dtoToUser(userDTO);
-        this.userRepository.save(user);
-        return "signup";
-    }
+    // @PostMapping("/register")
+    // public String registerUer(@ModelAttribute("userDTO") UserDTO userDTO){
+    //     User user = this.userServiceImplementation.dtoToUser(userDTO);
+    //     this.userRepository.save(user);
+    //     return "signup";
+    // }
     
     
 }

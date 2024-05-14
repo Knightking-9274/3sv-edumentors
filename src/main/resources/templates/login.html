@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="/src/main/resources/static/css/css1_abu/style.css">
+    <link rel="stylesheet" href="/css1_abu/style.css">
 </head>
 <body>
 
@@ -13,7 +13,7 @@
       <h1>Welcome!</h1>
 
       <h2>Login</h2>
-      <form action="/login" method="post" id="login-form">
+      <form th:action="@{/login}" method="post" id="login-form">
         <label for="email">Email Address:</label>
         <input type="email" id="email" name="email" required>
         <br>
@@ -27,7 +27,7 @@
         <p><input type="checkbox" name="remember_me" id="remember_me">Remember  me</p>
       </form>
 
-      <p>Don't have an account? <a href="./signup.html" id="signup-link">Register</a><a href="forgotPassword.html" id="forgot_p">Forgot password</a></p>
+      <p>Don't have an account? <a href="#" id="signup-link" th:href="@{/signup}">Register</a><a href="#" id="forgot_p" th:href="@{/forgotPassword}">Forgot password</a></p>
     </div>
 
 </div>

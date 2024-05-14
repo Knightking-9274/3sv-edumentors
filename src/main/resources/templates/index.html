@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,11 +48,11 @@
                <div style="display: flex;">
                     <div>
                         <div type="button" id="login-btn"class="bi bi-box-arrow-in-right" data-bs-toggle="modal" data-bs-target="#login-Btn-Click" ></div>
-                        <p class="size-adjust-title" style="margin-left:15px" ><a href="login.html">Login</a></p>
+                        <p class="size-adjust-title" style="margin-left:15px" ><a href="#" th:href="@{/login}">Login</a></p>
                     </div>
                     <div>
                      <div id="reg-btn" class="bi bi-person-fill-add"></div>
-                     <p class="size-adjust-title" style="margin-left: 6px;"><a href="signup.html">Signup</a></p>
+                     <p class="size-adjust-title" style="margin-left: 6px;"><a th:href="@{/signup}" >Signup</a></p>
                 </div>
                </div>
             </div>

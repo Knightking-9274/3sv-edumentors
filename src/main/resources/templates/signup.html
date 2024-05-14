@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="/src/main/resources/static/css/css1_abu/style.css"> </head>
+    <link rel="stylesheet" href="/css1_abu/style.css"> </head>
 <body>
     <h1>Sign Up</h1>
 
@@ -34,7 +34,7 @@
         <br>
 
         <label for="about">About</label>
-        <input type="text" id="about" name="about" required th:valuev="${userDTO.about}">
+        <input type="text" id="about" name="about" required th:value="${userDTO.about}">
         <br>
 
         <input type="checkbox" id="terms" name="terms" required>
@@ -45,6 +45,6 @@
         <button type="reset">Reset</button>
     </form>
 
-    <p>Already have an account? <a href="./login.html">Login Here</a></p>
+    <p>Already have an account? <a href="#" th:href="@{/login}">Login Here</a></p>
 </body>
 </html>
