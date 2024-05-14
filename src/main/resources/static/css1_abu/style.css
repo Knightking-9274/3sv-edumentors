@@ -128,7 +128,7 @@ body {
     font-size: 15em;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     flood-color: blue;
-    background-image: url(./images/background2.jpg);
+    background-image: url(../images/background2.jpg);
     background-size: cover;
     color: transparent;
     background-clip: text;

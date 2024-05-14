@@ -25,6 +25,7 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
     private UserServiceImplementation userServiceImplementation;
 
     // @RequestMapping("")
@@ -33,12 +34,13 @@ public class UserController {
     //     UserDTO createUserDTO = this.userService.createUser(userDTO);
     //     return new ResponseEntity<>(createUserDTO,HttpStatus.CREATED);
     // }
-    // @PostMapping("/register")
-    // public String registerUer(@ModelAttribute("userDTO") UserDTO userDTO){
-    //     User user = this.userServiceImplementation.dtoToUser(userDTO);
-    //     this.userRepository.save(user);
-    //     return "signup";
-    // }
+    @PostMapping("/register")
+    public String registerUser(@ModelAttribute("userDTO") UserDTO userDTO){
+        User user = this.userServiceImplementation.dtoToUser(userDTO);
+        this.userRepository.save(user);
+        System.out.println("Saved!!!");
+        return "signup";
+    }
     
     
 }
