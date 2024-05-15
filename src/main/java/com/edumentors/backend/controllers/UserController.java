@@ -8,6 +8,8 @@ import com.edumentors.backend.repositories.UserRepository;
 import com.edumentors.backend.services.UserService;
 import com.edumentors.backend.services.implementations.UserServiceImplementation;
 
+import jakarta.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -35,11 +37,18 @@ public class UserController {
     //     return new ResponseEntity<>(createUserDTO,HttpStatus.CREATED);
     // }
     @PostMapping("/register")
-    public String registerUser(@ModelAttribute("userDTO") UserDTO userDTO){
+    public String registerUser(@ModelAttribute("userDTO") UserDTO userDTO,HttpSession session){
+        try{
         User user = this.userServiceImplementation.dtoToUser(userDTO);
         this.userRepository.save(user);
-        System.out.println("Saved!!!");
+        session.setAttribute("registered","Registered sucessfully!");
+        System.out.println(session.getAttribute("registered"));
         return "signup";
+        }
+        catch(Exception e){
+            session.setAttribute("error","Something went wrong! "+e.getMessage());
+            return "signup";
+        }
     }
     
     
