@@ -124,6 +124,10 @@ body {
     padding-left: 25px;
   }
 
+  .error{
+    font-style: italic;
+    color: red;
+  }
   #error_h {
     font-size: 15em;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;

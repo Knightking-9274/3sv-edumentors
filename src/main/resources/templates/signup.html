@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<html  lang="en" xmlns:th = "http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,12 @@
     
     
 
-    <form action="#" th:action="@{/register}"  method="post" th:object="${userDTO}">
+    <form novalidate action="#" th:action="@{/register}"  method="post" th:object="${userDTO}">
+        <!-- Temporary button for closing form-->
+        <!-- <div style="position: relative;">
+            <a style="top: 5px; right: 5px; position: absolute; cursor: pointer; background-color:red; font-weight: bold; color: white; " th:href="@{/home}">X</a>
+        </div>
+        -->
         <div th:if="${session.registered}" style="color: #155724; background-color: #d4edda; border-color: #c3e6cb;" role="alert">
             <p th:text="${session.registered}"> The alert dialog</p>
         </div>
@@ -25,34 +30,42 @@
         <h1>Register here!</h1>
         <label for="firstname">First Name</label>
         <input type="text" id="firstname" name="fName" required th:value = ${userDTO.fName}>
+        <span th:if="${#fields.hasErrors('fName')}" th:errors="*{fName}" class="error"></span>
         <br>
 
         <label for="lastname">Last Name</label>
         <input type="text" id="lastname" name="lName" required th:value = ${userDTO.lName}>
+        <span th:if="${#fields.hasErrors('lName')}" th:errors="*{lName}" class="error"></span>
         <br>
 
         <label for="city_name">City</label>
         <input type="text" id="city_name" name="city" required th:value = ${userDTO.city}>
+        <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}" class="error"></span>
         <br>
 
         <label for="mobile_no">Mobile</label>
         <input type="number" id="mobile_no" name="contact" required th:value = ${userDTO.contact}>
+        <span th:if="${#fields.hasErrors('contact')}" th:errors="*{contact}" class="error"></span>
         <br>
 
         <label for="email" >Email</label>
         <input type="email" id="email" name="email" required placeholder="Email Id will be your username" th:value = "${userDTO.email}">
+        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></span>
         <br>
         
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required th:value="${userDTO.password}">
+        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error"></span>
         <br>
 
         <label for="about">About</label>
         <input type="text" id="about" name="about" required th:value="${userDTO.about}">
+        <span th:if="${#fields.hasErrors('about')}" th:errors="*{about}" class="error"></span>
         <br>
 
         <input type="checkbox" id="terms" name="terms" required>
         <label for="terms">I agree to the Terms of Service and Privacy Policy</label>
+        <span th:if="${#fields.hasErrors('terms')}" th:errors="*{terms}" class="error"></span>
         <br>
 
         <button type="submit">Sign Up</button>
