@@ -643,6 +643,23 @@ home{
   padding: 1rem 1.5rem;
   border-radius: .5rem;
 }
+.user-icon{
+  margin-top: 10px;
+  margin-right: 10px;
+  
+
+}
+@media screen and (max-width: 768px) {
+  .navbar-container {
+      flex-direction: column;
+      align-items: flex-end;
+  }
+
+  .user-icon {
+      margin-top: 10px; /* Adjust as needed */
+      margin-right: 0; /* Reset margin-right */
+  }
+}
 
 .review .slide .user img{
   height: 7rem;

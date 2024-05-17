@@ -27,6 +27,9 @@ public class HomeController {
     @Autowired
     private UserServiceImplementation userServiceImplementation;
 
+    // @Autowired
+    // private BCryptPasswordEncoder bCryptPasswordEncoder;
+
     //for handling home page
     @RequestMapping("home")
     public String home(Model model){
@@ -48,11 +51,13 @@ public class HomeController {
             return "signup";
         }
         try{
-        User user = this.userServiceImplementation.dtoToUser(userDTO);
-        this.userRepository.save(user);
-        session.setAttribute("registered","Registered sucessfully!");
-        System.out.println(session.getAttribute("registered"));
-        return "signup";
+            
+            
+            User user = this.userServiceImplementation.dtoToUser(userDTO);
+            this.userRepository.save(user);
+            session.setAttribute("registered","Registered sucessfully! You Can LogIn");
+            System.out.println(session.getAttribute("registered"));
+         return "signup";
         }
         catch(Exception e){
             session.setAttribute("error","Something went wrong! "+e.getMessage());

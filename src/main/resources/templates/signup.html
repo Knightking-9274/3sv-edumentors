@@ -65,7 +65,7 @@
 
         <input type="checkbox" id="terms" name="terms" required>
         <label for="terms">I agree to the Terms of Service and Privacy Policy</label>
-        <span th:if="${#fields.hasErrors('terms')}" th:errors="*{terms}" class="error"></span>
+        <span th:if="${#fields.hasErrors('terms')}" th:errors="*{about}" class="error"></span>
         <br>
 
         <button type="submit">Sign Up</button>
