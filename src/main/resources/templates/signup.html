@@ -54,7 +54,7 @@
         <br>
         
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" required th:value="${userDTO.password}">
+        <input type="password" id="password" name="password" required >
         <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error"></span>
         <br>
 

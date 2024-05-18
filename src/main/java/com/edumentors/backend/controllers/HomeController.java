@@ -1,6 +1,7 @@
 package com.edumentors.backend.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.edumentors.backend.dto.UserDTO;
-import com.edumentors.backend.entities.User;
+
 import com.edumentors.backend.repositories.UserRepository;
 import com.edumentors.backend.services.implementations.UserServiceImplementation;
 
@@ -21,14 +22,17 @@ import jakarta.validation.Valid;
 @Controller
 @RequestMapping("/")
 public class HomeController {
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
     @Autowired
     private UserRepository userRepository;
 
     @Autowired
     private UserServiceImplementation userServiceImplementation;
 
-    // @Autowired
-    // private BCryptPasswordEncoder bCryptPasswordEncoder;
+    
 
     //for handling home page
     @RequestMapping("home")
@@ -50,13 +54,17 @@ public class HomeController {
         if (bindingResult.hasErrors()) {
             return "signup";
         }
+         if(userRepository.existsByEmailId(userDTO.getEmail())){
+            session.setAttribute("error", "email already exists!");
+            return "signup";
+        }
         try{
+            userDTO.setPassword(bCryptPasswordEncoder.encode(userDTO.getPassword()));
+
             
-            
-            User user = this.userServiceImplementation.dtoToUser(userDTO);
-            this.userRepository.save(user);
+            this.userServiceImplementation.createUser(userDTO);
             session.setAttribute("registered","Registered sucessfully! You Can LogIn");
-            System.out.println(session.getAttribute("registered"));
+           
          return "signup";
         }
         catch(Exception e){

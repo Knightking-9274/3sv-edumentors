@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/user")
 public class UserController {
 
+    @RequestMapping("/user-dashboard")
     public String userDashboard(){
         return "users/user-dashboard";
     }
