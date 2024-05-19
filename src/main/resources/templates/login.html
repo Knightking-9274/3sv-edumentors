@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="/css1_abu/style.css">
+    <link rel="stylesheet" href="css1_abu/style.css">
 </head>
 <body>
 
@@ -24,7 +24,17 @@
 
         <button type="submit">Login</button>
         <button type="reset">Reset</button>
-        <p><input type="checkbox" name="remember_me" id="remember_me">Remember  me</p>
+        <span><p>Login with</p></span>
+
+        <div  style="margin-top: 20px; display: flex; justify-content: space-evenly;" class="row">
+
+         <div> <img src="google_logo.png" height="25px" width="25px"/>
+        </div>
+        <div> <img src="linkedIn_logo.png" height="25px" width="25px"/>
+        </div>
+          
+        </div>
+
       </form>
 
       <p>Don't have an account? <a href="#" id="signup-link" th:href="@{/signup}">Register</a><a href="#" id="forgot_p" th:href="@{/forgotPassword}">Forgot password</a></p>

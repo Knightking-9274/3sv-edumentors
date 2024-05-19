@@ -55,6 +55,7 @@ public class SecurityConfig {
             login.passwordParameter("password");
             login.defaultSuccessUrl("/user/user-dashboard", true);            ;
             login.failureForwardUrl("/login?error=true");
+            
             // login.failureHandler(new AuthenticationFailureHandler() {
 
             //     @Override
@@ -75,6 +76,9 @@ public class SecurityConfig {
             //     }
                 
             // });
+        });
+        httpSecurity.logout(logOut->{
+            logOut.logoutUrl("/logout");
         });
         return httpSecurity.build();
 
