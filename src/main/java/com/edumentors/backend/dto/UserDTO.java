@@ -32,6 +32,7 @@ public class UserDTO {
     private String city;
 
     @Email(message="invalid email!")
+    @NotBlank(message = "field cannot be blank")
     private String email;
 
     @Size(min = 8, message = "Password must be at least 8 characters long")
