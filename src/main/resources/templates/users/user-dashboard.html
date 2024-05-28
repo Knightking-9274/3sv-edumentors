@@ -19,7 +19,7 @@
 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <!-- custom css link -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 
 </head>
 <body>
@@ -30,7 +30,7 @@
 
        <div>
             <!-- <a href="/" class="logo"> -->
-        <img src="images/brand-logo.png" height="100" alt="logo"></img></a>
+        <img src="/images/brand-logo.png" height="100" alt="logo"></img></a>
        </div>
 
         <nav class="navbar">
@@ -43,7 +43,9 @@
             <a href="imageGallary.html" class="hover-underline">Photograph</a>
 
             <div class="user-icon">
-                <img src="images/user.png" height="30" width="about" alt="user-icon"></img>
+                <a th:href="@{/profile.html}">
+                    <img src="/images/user.png" height="30" width="about" alt="user-icon">
+                </a>
             </div>
         </nav>
 
@@ -98,9 +100,9 @@
 
     <section class="home" id="home">
         <div class="slider">
-            <img src="images/hero-image-1.jpg" alt="Slide 1">
-            <img src="images/blog6.jpg" alt="Slide 2">
-            <img src="images/blog8.jpg" alt="Slide 3">
+            <img src="/images/hero-image-1.jpg" alt="Slide 1">
+            <img src="/images/blog6.jpg" alt="Slide 2">
+            <img src="/images/blog8.jpg" alt="Slide 3">
           </div>
           
     
@@ -127,8 +129,8 @@
         <div class="container">
 
             <figure class="about-image">
-                <img src="images/about-img.jpg" alt="about image" height="550">
-                <img src="images/blog8.jpg" alt="" class="about-img">
+                <img src="/images/about-img.jpg" alt="about image" height="550">
+                <img src="/images/blog8.jpg" alt="" class="about-img">
             </figure>
 
             <div class="about-content">
@@ -197,7 +199,7 @@
 
             <div class="box">
                 <div class="image shine">
-                    <img src="images/course-1.jpg" alt="">
+                    <img src="/images/course-1.jpg" alt="">
                     <h3>basic</h3>
                 </div>
                 <div class="content">
@@ -225,7 +227,7 @@
 
             <div class="box">
                 <div class="image shine">
-                    <img src="images/course-2.jpg" alt="">
+                    <img src="/images/course-2.jpg" alt="">
                     <h3>basic</h3>
                 </div>
                 <div class="content">
@@ -250,7 +252,7 @@
 
             <div class="box">
                 <div class="image shine">
-                    <img src="images/course-3.jpg" alt="">
+                    <img src="/images/course-3.jpg" alt="">
                     <h3>basic</h3>
                 </div>
                 <div class="content">

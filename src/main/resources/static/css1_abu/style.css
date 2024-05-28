@@ -70,15 +70,13 @@ body {
     margin-bottom: 15px;
   }
   
-  input[type="checkbox"] {
-    margin-right: 5px;
-    align-content: start;
-  }
-  
-  .terms {
-    font-size: 0.8em;
-    color: #aaa;
-  }
+  .terms-container {
+    display: flex;
+    align-items: center;
+}
+  .terms-container input[type="checkbox"] {
+    margin-right: 10px;
+}
   
   button[type="submit"] {
     background-color: #3557f0;

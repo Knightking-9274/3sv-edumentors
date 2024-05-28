@@ -5,7 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     
-    <link rel="stylesheet" href="/css1_abu/style.css"> </head>
+    <link rel="stylesheet" href="/css1_abu/style.css"> 
+
+    <script>
+         function clearAlerts() {
+            document.getElementById('success-alert').style.display = 'none';
+            document.getElementById('error-alert').style.display = 'none';
+        }
+    </script>
+
+</head>
 <body>
     
     
@@ -18,11 +27,11 @@
             <a style="top: 5px; right: 5px; position: absolute; cursor: pointer; background-color:red; font-weight: bold; color: white; " th:href="@{/home}">X</a>
         </div>
         -->
-        <div th:if="${session.registered}" style="color: #155724; background-color: #d4edda; border-color: #c3e6cb;" role="alert">
-            <p th:text="${session.registered}"> The alert dialog</p>
+        <div id="success-alert" th:if="${session.registered}" style="color: #155724; background-color: #d4edda; border-color: #c3e6cb;" role="alert">
+            <p th:text="${session.registered}"> </p>
         </div>
-        <div th:if="${session.error}" style="color: #fc0303; background-color: #f8d7da; border-color: #f5c2c7;" role="alert" >
-            <p th:text="${session.error}"> The alert dialog</p>
+        <div id="success-error" th:if="${session.error}" style="color: #fc0303; background-color: #f8d7da; border-color: #f5c2c7;" role="alert" >
+            <p th:text="${session.error}"> </p>
         </div>
         
         
@@ -63,21 +72,26 @@
         <span th:if="${#fields.hasErrors('about')}" th:errors="*{about}" class="error"></span>
         <br>
 
-        <input type="checkbox" id="terms" name="terms" required>
+        <!-- <input type="checkbox" id="terms" name="terms" required>
         <label for="terms">I agree to the Terms of Service and Privacy Policy</label>
         <span th:if="${#fields.hasErrors('terms')}" th:errors="*{about}" class="error"></span>
-        <br>
+        <br> -->
+
+        <div class="terms-container">
+            <input type="checkbox" id="terms" name="terms" required>
+            <label for="terms">I agree to the Terms of Service and Privacy Policy</label>
+        </div>
 
         <button type="submit">Sign Up</button>
-        <button type="reset">Reset</button>
+        <button type="reset" onclick="clearAlerts()">Reset</button>
         <span><p>Sign in with</p></span>
 
-        <div  style="margin-top: 20px; display: flex; justify-content: space-evenly;" class="row">
+        <div  style="margin-top: 20px; display: flex; justify-content: space-evenly;"
+        
+        class="row">
 
-         <div> <img src="google_logo.png" height="25px" width="25px"/>
-        </div>
-        <div> <img src="linkedIn_logo.png" height="25px" width="25px"/>
-        </div>
+            
+            
           
         </div>
     </form>

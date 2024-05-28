@@ -1,7 +1,7 @@
 package com.edumentors.backend.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,11 +20,10 @@ import jakarta.validation.Valid;
 
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/home")
 public class HomeController {
 
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    
 
     @Autowired
     private UserRepository userRepository;
@@ -59,7 +58,7 @@ public class HomeController {
             return "signup";
         }
         try{
-            userDTO.setPassword(bCryptPasswordEncoder.encode(userDTO.getPassword()));
+            
 
             
             this.userServiceImplementation.createUser(userDTO);
@@ -77,6 +76,7 @@ public class HomeController {
 
     @GetMapping("/login")
     public String logIn(@ModelAttribute("userDTO") UserDTO userDTO){
+        
         return "login";
     }
 
@@ -90,4 +90,9 @@ public class HomeController {
         return "updatePassword";
 
     }
+    @RequestMapping("/logout")
+        public String logOut(){
+            return "logout";
+        }
 }
+
