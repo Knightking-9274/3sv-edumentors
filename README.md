@@ -1,1 +1,1 @@
-This is a backend repository of 3SV-Edumentors and Consultants website.
+This is a repository of 3SV-Edumentors and Consultants website.
